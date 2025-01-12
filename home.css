@@ -38,7 +38,7 @@
 {
   text-align: center;
   background:linear-gradient(to bottom right, blue 20% , rgb(12, 12, 12));
-  font-size: 60px;
+  font-size: 4vw;
   height:70px;
   color:lightblue;
   letter-spacing: 5px;
@@ -157,7 +157,32 @@
  
 }
 
+@media only screen and (max-width:1020px) {
 
+  .title
+  {
+    font-size: 6vw;
+  }
+  
+}
+
+@media only screen and (max-width:700px) {
+
+  .title
+  {
+    font-size: 8vw;
+  }
+  
+}
+
+@media only screen and (max-width:500px) {
+
+  .title
+  {
+    font-size: 12vw;
+  }
+  
+}
 
 
 

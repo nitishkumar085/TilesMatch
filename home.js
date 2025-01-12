@@ -27,17 +27,9 @@ let playGameLevel = 1
 let selectedTile = ''
 let matchTile = ''
 
-function gameload (data)
-{
-   const{icon} = data
-  console.log(icon)
-  main[0].innerHTML = ""
-      // const noOfTiles = 5;
-      // const  icon = ["#","$","%","&","@","^","(",")",";",":",".","<",">","?","/"]
-      findTilesPosition(icon)
-}
-
 let copyListData = []
+
+//find random tiles position
 function findTilesPosition(icon)
 {
   const listData = []
@@ -78,10 +70,23 @@ else{
       gameEndFlag = true
     }
 }
+//when game loaded
+function gameload (data)
+{
+   const{icon} = data
+  console.log(icon)
+  main[0].innerHTML = ""
+      // const noOfTiles = 5;
+      // const  icon = ["#","$","%","&","@","^","(",")",";",":",".","<",">","?","/"]
+      findTilesPosition(icon)
+}
+
+
 
 
 const gameTimer  =document.getElementById('gametimer')
 let startFlag = false
+//function of countdown timer 
 function gameCountdownTimer (data){
   gameEndFlag = false
 
@@ -122,7 +127,7 @@ const timer =setInterval(()=>{
 
 
 
-
+// function of game start button
 gameStartButton.addEventListener('click',function(){
   if(!startFlag){
     startFlag = true
@@ -140,7 +145,7 @@ gameStartButton.addEventListener('click',function(){
 })
 
 let replayData = []
-
+// gameplay functions
 function gamePlay(listData)
 {
   // console.log(listData)
@@ -261,7 +266,7 @@ replay.addEventListener("click",function(){
   
 })
 
-
+// check symbols 
 const findSymbol = (arr)=>{
   console.log('findsymbol')
   let newarr = []
