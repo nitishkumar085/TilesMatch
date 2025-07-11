@@ -1,0 +1,42 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flipping Div on Click</title>
+  <link  href="./flipgame.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+      <nav>
+     <h1 class='title'>Tiles match</h1>
+  </nav>
+    <div class="flip-container" id="myFlipCard">
+        <div class="flipper">
+            <div class="front">
+                Click Me!
+            </div>
+            <div class="back">
+                🎉 Surprise! You found me!
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Get a reference to the flip container
+        const flipCard = document.getElementById('myFlipCard');
+
+        // Add a click event listener to the container
+        flipCard.addEventListener('click', function() {
+            // Toggle the 'flipped' class on the container
+            this.classList.toggle('flipped');
+        });
+    </script>
+      
+    <script src="./flipGame.js" type='module'></script>
+        <script src="level.js" type='module'></script>
+</body>
+</html>
+

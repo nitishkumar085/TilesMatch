@@ -18,11 +18,13 @@ console.log(level)
 let selected = ""
 
 // function check()
+
 // {
 //     if()
 // }
 let gameEndFlag = false
-let playGameLevel = 1
+//store game level
+let playGameLevel =  +localStorage.getItem('gamelevel') || 1
 
 let selectedTile = ''
 let matchTile = ''
@@ -145,6 +147,7 @@ gameStartButton.addEventListener('click',function(){
 })
 
 let replayData = []
+let chooseTile = []
 // gameplay functions
 function gamePlay(listData)
 {
@@ -166,15 +169,19 @@ function gamePlay(listData)
           div.className = 'tiles-style'
           div.id = 'gam'+k
           div.addEventListener('click',function(){
+
+            // console.log(selectedTile)
+            // chooseTile = selectedTile
+            // console.log(chooseTile)
             
             if(!selectedTile)
             {
               selectedTile = [name,k]
-              div.style.border = '3px solid brown'
+              div.style.backgroundColor = 'green'
             }
               else if(selectedTile[1] ===k)
               {
-                    div.style.border = '1px solid black'
+                    div.style.backgroundColor = 'lightBlue'
                 selectedTile = ""
               }
             else if(!matchTile)
@@ -205,7 +212,7 @@ function gamePlay(listData)
             else 
             {
               console.log('tiles not matched')
-              document.getElementById(`gam${selectedTile[1]}`).style.border = '1px solid black'
+              document.getElementById(`gam${selectedTile[1]}`).style.backgroundColor = 'lightBlue'
               selectedTile = ''
               matchTile = ""
             }
@@ -221,7 +228,10 @@ function gamePlay(listData)
 
 // console.log(listData)
 //is home button is clicked
+
 homeButton.addEventListener('click',function(){
+
+  console.log('home button')
  
   gameOverPopup.style.display = 'none'
    gameview.style.display = 'none'
@@ -229,6 +239,8 @@ homeButton.addEventListener('click',function(){
   if(gameEndFlag)
   {
     playGameLevel+=1
+    console.log(playGameLevel)
+    localStorage.setItem('gamelevel',playGameLevel)
   }
      
 })
@@ -241,6 +253,7 @@ replay.addEventListener("click",function(){
   if(this.innerText ==='Next')
   {
     playGameLevel+=1
+    localStorage.setItem('gamelevel',playGameLevel)
     gameOverPopup.style.display = 'none'
   gameStartButton.style.display='none'
     if(!startFlag){
