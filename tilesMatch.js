@@ -130,7 +130,24 @@ const timer =setInterval(()=>{
 
 
 // function of game start button
-gameStartButton.addEventListener('click',function(){
+// gameStartButton.addEventListener('click',function(){
+//   if(!startFlag){
+//     startFlag = true
+//     gameview.style.display = "block";
+//     gameStartButton.style.display = 'none'
+//     gametimer.style.visibility = 'visible'
+//     gamelevel.style.display = 'block'
+//     gamelevel.innerText = `level ${playGameLevel}`
+//     main[0].style.display = 'flex'
+    
+//     gameload(level[playGameLevel])
+//     gameCountdownTimer(level[playGameLevel])
+//   }
+  
+// })
+
+// when redirect ro page
+ window.onload = function(){
   if(!startFlag){
     startFlag = true
     gameview.style.display = "block";
@@ -144,7 +161,7 @@ gameStartButton.addEventListener('click',function(){
     gameCountdownTimer(level[playGameLevel])
   }
   
-})
+}
 
 let replayData = []
 let chooseTile = []
@@ -229,19 +246,26 @@ function gamePlay(listData)
 // console.log(listData)
 //is home button is clicked
 
+console.log(chooseTile)
+
 homeButton.addEventListener('click',function(){
 
   console.log('home button')
  
-  gameOverPopup.style.display = 'none'
-   gameview.style.display = 'none'
-  gameStartButton.style.display='inline-block'
-  if(gameEndFlag)
+//   gameOverPopup.style.display = 'none'
+//    gameview.style.display = 'none'
+//   gameStartButton.style.display='inline-block'
+    if(chooseTile.length===0 && replayData.length===0)
+  {
+     localStorage.setItem('gamelevel',playGameLevel+1)
+  }
+  else if(gameEndFlag)
   {
     // playGameLevel+=1
     console.log(playGameLevel)
     localStorage.setItem('gamelevel',playGameLevel)
-  }
+  }  
+  window.location.pathname = "/index.html";
      
 })
 
