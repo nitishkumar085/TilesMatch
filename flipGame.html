@@ -10,30 +10,33 @@
   <link  href="./flipgame.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-      <nav>
-     <h1 class='title'>Tiles match</h1>
-  </nav>
-    <div class="flip-container" id="myFlipCard">
-        <div class="flipper">
-            <div class="front">
-                Click Me!
-            </div>
-            <div class="back">
-                🎉 Surprise! You found me!
-            </div>
-        </div>
+    <nav>
+    <h1 class='title'>Tiles match</h1>
+    </nav>
+
+    <div id='gameOverPopup'>
+      <h2 id='gameoverTitle'><b><i>Game over !</i></b></h2>
+      <button id='replayButton'>replay</button>
+      <button id='homeButton'>home</button>
     </div>
 
-    <script>
-        // Get a reference to the flip container
-        const flipCard = document.getElementById('myFlipCard');
+    <div id='gameStartconatiner'>
+      <!-- <div id="styleContainer">
+      </div> -->
+      <button id='gameStart'>Match Tiles</button>
+      <!-- <a href="./flipGame.html"><button id="flipgame_startbutton">Flip Game</button></a> -->
+      <div id="gameview">
+      <h3 id="gamelevel">level 0</h3>
+      <h6 id='gametimer'>00:00</h6>
+      <div class="container">
+    </div>
+        </div>
+   
+      
+      
+    </div>
 
-        // Add a click event listener to the container
-        flipCard.addEventListener('click', function() {
-            // Toggle the 'flipped' class on the container
-            this.classList.toggle('flipped');
-        });
-    </script>
+
       
     <script src="./flipGame.js" type='module'></script>
         <script src="level.js" type='module'></script>

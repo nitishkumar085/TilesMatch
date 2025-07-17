@@ -30,7 +30,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-   border: 1px solid red;
+   /* border: 1px solid red; */
   /* flex-direction:column; */
   position: relative;
   background-color: rgb(0, 0, 0);
