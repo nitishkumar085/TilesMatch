@@ -26,7 +26,7 @@ let selected = ""
 // }
 let gameEndFlag = false
 //store game level
-let playGameLevel =  +localStorage.getItem('gamelevel') || 1
+let playGameLevel =  +localStorage.getItem('flipgamelevel') || 1
 
 let selectedTile = ''
 let matchTile = ''
@@ -235,7 +235,7 @@ function gamePlay(listData)
         // });
           div.addEventListener('click',function(){
             console.log(this)
-            debugger;
+            // debugger;
             this.classList.toggle('flipped')
 
             // console.log(selectedTile)
@@ -296,7 +296,7 @@ function gamePlay(listData)
               // console.log(secondTile)
               // secondTile.classList.toggle('flipped')
               backToNormal(selectedTile,matchTile)
-              document.getElementById(`gam${selectedTile[1]}`).style.backgroundColor = 'lightBlue'
+              // document.getElementById(`gam${selectedTile[1]}`).style.backgroundColor = 'lightBlue'
               selectedTile = ''
               matchTile = ""
             }
@@ -332,13 +332,13 @@ homeButton.addEventListener('click',function(){
 //   gameStartButton.style.display='inline-block'
     if(chooseTile.length===0 && replayData.length===0)
   {
-     localStorage.setItem('gamelevel',playGameLevel+1)
+     localStorage.setItem('flipgamelevel',playGameLevel+1)
   }
   else if(gameEndFlag)
   {
     // playGameLevel+=1
     // console.log(playGameLevel)
-    localStorage.setItem('gamelevel',playGameLevel)
+    localStorage.setItem('flipgamelevel',playGameLevel)
   }  
   window.location.pathname = "/index.html";
      
@@ -352,7 +352,7 @@ replay.addEventListener("click",function(){
   if(this.innerText ==='Next')
   {
     playGameLevel+=1
-    localStorage.setItem('gamelevel',playGameLevel)
+    localStorage.setItem('flipgamelevel',playGameLevel)
     gameOverPopup.style.display = 'none'
   gameStartButton.style.display='none'
     if(!startFlag){
