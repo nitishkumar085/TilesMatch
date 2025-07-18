@@ -267,6 +267,23 @@
   /* flex-basis:1 auto ; */
   /* transform: matrix3d(0.6,0.1,0.7,0,-0.5,0.8,0.1,0,-0.6,-0.5,0.5,0,0,0,0,1); */
 }
+
+
+
+#gameStartconatiner
+{
+  width:100%;
+  height: 87vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+   /* border: 1px solid red; */
+  /* flex-direction:column; */
+  position: relative;
+  background-color: rgb(0, 0, 0);
+}
   
 }
 
