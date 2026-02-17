@@ -70,7 +70,8 @@
   margin: 0;
   padding: 0;
   visibility: hidden;
-  /* color: white; */
+  color: white;
+  border:1px solid red;
 }
 
 #gameStart

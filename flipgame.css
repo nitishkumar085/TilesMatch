@@ -418,3 +418,28 @@
 {
     transform: matrix3d(0.6,0.1,0.7,0,-0.5,0.8,0.1,0,-0.6,-0.5,0.5,0,0,0,0,1);
 } */
+
+
+
+
+
+
+/*retry heart stying*/
+
+#retryHearts
+{
+  width:200px;
+  height: 70px;
+  border: 1px solid blue;
+  color:white;
+}
+
+#retryHearts div
+{
+  width:50px;
+  height: 50px;
+  border: 1px solid green;
+  background-color: red;
+  border-radius: 50%;
+  display: inline-block;
+}

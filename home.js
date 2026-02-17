@@ -15,6 +15,11 @@ const gameStartconatiner = document.getElementById('gameStartconatiner')
 const replay = document.getElementById('replayButton')
 console.log(level)
 
+
+
+
+
+
 let selected = ""
 
 // function check()
