@@ -16,7 +16,9 @@ const replay = document.getElementById('replayButton')
 console.log(level)
 
 
-
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js');
+}
 
 
 
