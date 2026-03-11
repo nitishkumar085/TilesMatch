@@ -1,8 +1,18 @@
-
+/*universal css*/
 *
 {
   margin: 0;
   padding: 0;
+}
+
+/*navigation bar styling*/
+
+nav{
+  position: fixed;
+  z-index: 9999;
+  width:100%;
+  /* background-color: red; */
+  color: black;
 }
 
 .container
@@ -25,15 +35,18 @@
 #gameStartconatiner
 {
   width:100%;
-  height: 87vh;
+  height: 100vh;
   overflow: hidden;
   display: flex;
   justify-content: space-around;
   align-items: center;
-   /* border: 1px solid red; */
+   border: 1px solid red;
   /* flex-direction:column; */
   position: relative;
-  background-color: rgb(0, 0, 0);
+  background:url('./assets/background/tilesMatchBackground.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 #gameStartconatiner #flipgame_startbutton
@@ -55,7 +68,7 @@
 .title
 {
   text-align: center;
-  background:linear-gradient(to bottom right, blue 20% , rgb(12, 12, 12));
+  background:linear-gradient(to bottom right, rgba(26, 26, 192,0.2) 20% , rgb(12, 12, 12));
   font-size: 4vw;
   height:70px;
   color:lightblue;
@@ -77,7 +90,12 @@
 {
   width: 200px;
   height: 200px;
-  background:linear-gradient(45deg, rgb(236, 0, 0) 2% , rgb(192, 79, 79) 80%);
+  background:linear-gradient(45deg, rgb(54, 54, 55) 2% , rgb(145, 148, 153) 80%);
+
+  /* background:url('./assets/gamesBackground/match-tile-icon.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: fill; */
   border-style:none;
   /* outline:none; */
   font-family: "Poppins", serif;
@@ -86,8 +104,10 @@
   position: relative;
   z-index: 1;
     letter-spacing: 2px;
-    box-shadow: 10px 10px 14px 1px rgb(66, 17, 15) , -1px -1px 10px 2px rgb(219, 133, 128)  ;
-
+    box-shadow: 10px 10px 14px 1px rgb(54, 54, 55) , -1px -1px 10px 2px rgb(145, 148, 153)  ;
+text-align: center;
+color: white;
+font-weight: 800 ;
 }
 
 /* #gameStart::after

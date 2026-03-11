@@ -155,7 +155,7 @@ const timer =setInterval(()=>{
     gametimer.style.visibility = 'visible'
     gamelevel.style.display = 'block'
     gamelevel.innerText = `level ${playGameLevel}`
-    main[0].style.display = 'flex'
+    main[0].style.display = 'grid'
     
     gameload(level[playGameLevel])
     gameCountdownTimer(level[playGameLevel])
