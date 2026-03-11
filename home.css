@@ -40,7 +40,7 @@ nav{
   display: flex;
   justify-content: space-around;
   align-items: center;
-   border: 1px solid red;
+   /* border: 1px solid red; */
   /* flex-direction:column; */
   position: relative;
   background:url('./assets/background/tilesMatchBackground.png');
