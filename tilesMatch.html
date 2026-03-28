@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link  href="./home.css" rel="stylesheet" type="text/css"/>
+    <!-- <link  href="./home.css" rel="stylesheet" type="text/css"/> -->
+    <link href="./tilesMatch.css" rel="stylesheet type='text/css"/>
     <link rel="icon" href="favicon.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,7 +13,7 @@
 </head>
 <body>
   <nav>
-     <h1 class='title'>Tiles match</h1>
+     <a href="./index.html" class="home_link"><h1 class='title'><img src="./favicon.png" class='game_logo'/>&nbsp;&nbsp;<span>Tiles Match</span></h1></a>
   </nav>
    
     <div id='gameOverPopup'>
@@ -28,7 +29,14 @@
       <!-- <a href="./flipGame.html"><button id="flipgame_startbutton">Flip Game</button></a> -->
       <div id="gameview">
       <h3 id="gamelevel">level 0</h3>
+      <div class="timer_section">
       <h6 id='gametimer'>00:00</h6>
+      <div id="retryHearts">
+      <p >&#10084;</p>
+      <p >&#10084;</p>
+      <p >&#10084;</p>
+      </div>
+      </div>
       <div class="container">
     </div>
         </div>

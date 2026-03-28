@@ -1,16 +1,113 @@
-
+/*universal css*/
 *
 {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
+/*navigation bar styling*/
+
+nav{
+  position: fixed;
+  margin: 0px;
+  z-index: 9999;
+  width:100%;
+  /* background-color: red; */
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+      /* border:1px solid green; */
+
+}
+
+.home_link
+{
+  text-decoration: none;
+  width: 100%;
+}
+
+/*nav bar title and nav bar*/
+.home_link .title
+{
+  text-align: center;
+  background:linear-gradient(to bottom right, rgba(26, 26, 192,0.2) 20% , rgb(12, 12, 12));
+  font-size: 4vw;
+  width: 100%;
+  height:70px;
+  color:lightblue;
+  letter-spacing: 10px;
+  z-index: 200;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border:2px solid rgb(0, 2, 128); */
+}
+
+.home_link .title .game_logo
+{
+  width:80px;
+  height:60px; 
+  padding-top:0px ;
+}
+
+/* game level title*/
+
+#gamelevel
+{
+  font-size: clamp(1rem,6vw,13rem);
+  padding-top:20px;
+  text-align: center;
+  color:rgb(41, 40, 40);
+  display: none;
+    /* border:1px solid green; */
+
+}
+
+/*timer section*/
+.timer_section{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 50px;
+}
+
+#retryHearts
+{
+  width:100px;
+  height: 70px;
+  /* border: 1px solid blue; */
+  color:white;
+  display: flex;
+  align-items: center;
+  float: right;
+}
+
+#retryHearts p{
+  color: red; 
+  font-size: 50px;
+}
+
+#retryHearts div
+{
+  width:50px;
+  height: 50px;
+  border: 1px solid green;
+  background-color: red;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+
+/* game tiles container*/
 .container
 {
  width: 100%;
   height: 400px;
   border: 2px solid rgb(3, 3, 3);
-  background-color: rgba(10, 1, 1, 0.856);
+  background-color: rgba(10, 1, 1, 0.5);
   box-shadow: 3px 3px 10px 1px black;
   /* display: flex; */
   /* flex-wrap: wrap;
@@ -18,24 +115,29 @@
    justify-content: center;
    align-items: center;
    gap:20px; */
-   /* display:grid; */
-   grid-template-columns: auto auto auto auto;
-     border:1px solid green;
+    /* display: grid; */
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    gap: 10px;
+    place-items: center;
+     /* border:1px solid green; */
 
 }
 
 #gameStartconatiner
 {
   width:100%;
-  height: 87vh;
+  height: 100vh;
   overflow: hidden;
   display: flex;
   justify-content: space-around;
   align-items: center;
-   border: 1px solid red;
+   /* border: 1px solid red; */
   /* flex-direction:column; */
   position: relative;
-  background-color: rgb(0, 0, 0);
+  background:url('./assets/background/tilesMatchBackground.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 #gameStartconatiner #flipgame_startbutton
@@ -53,18 +155,7 @@
 
 }
 
-/*nav bar title and nav bar*/
-.title
-{
-  text-align: center;
-  background:linear-gradient(to bottom right, blue 20% , rgb(12, 12, 12));
-  font-size: 4vw;
-  height:70px;
-  color:lightblue;
-  letter-spacing: 5px;
-  z-index: 200;
-  position: relative;
-}
+
 
 #gametimer
 {
@@ -73,14 +164,18 @@
   padding: 0;
   visibility: hidden;
   color: white;
-  border:1px solid red;
 }
 
 #gameStart
 {
   width: 200px;
   height: 200px;
-  background:linear-gradient(45deg, rgb(236, 0, 0) 2% , rgb(192, 79, 79) 80%);
+  background:linear-gradient(45deg, rgb(54, 54, 55) 2% , rgb(145, 148, 153) 80%);
+
+  /* background:url('./assets/gamesBackground/match-tile-icon.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: fill; */
   border-style:none;
   /* outline:none; */
   font-family: "Poppins", serif;
@@ -89,8 +184,10 @@
   position: relative;
   z-index: 1;
     letter-spacing: 2px;
-    box-shadow: 10px 10px 14px 1px rgb(66, 17, 15) , -1px -1px 10px 2px rgb(219, 133, 128)  ;
-
+    box-shadow: 10px 10px 14px 1px rgb(54, 54, 55) , -1px -1px 10px 2px rgb(145, 148, 153)  ;
+text-align: center;
+color: white;
+font-weight: 800 ;
 }
 
 /* #gameStart::after
@@ -121,9 +218,9 @@
   font-size: clamp(1rem,6vw,13rem);
   padding-top:20px;
   text-align: center;
-  color:red;
+  color:rgb(41, 40, 40);
   display: none;
-    border:1px solid green;
+    /* border:1px solid green; */
 
 }
 
@@ -131,7 +228,8 @@
 {
   display: none;
   position: absolute;
-    border:1px solid green;
+    /* border:1px solid green; */
+  width: 80%;
 
 }
 
@@ -149,7 +247,7 @@
   top:50%;
   left:50%;
    transform: translate(-50%,-50%);
-  margin-top: 10px;
+  margin-top:0px;
   display: none;
   z-index: 100;
 }
@@ -195,13 +293,13 @@
   /* position: absolute; */
   border:1px solid rgb(180, 179, 179);
   background-color:lightBlue;
-  width:70px;
+  width:80px;
   height:10vh;
   text-align:center;
   padding-top:10px;
   box-sizing: border-box;
   box-shadow: 3px 3px 3px 2px rgb(12, 12, 12) , -1px -1px 3px 2px rgb(185, 184, 184)  ;
-  flex-basis:1 auto ;
+  flex-basis:1 1 auto ;
   /* transform: matrix3d(0.6,0.1,0.7,0,-0.5,0.8,0.1,0,-0.6,-0.5,0.5,0,0,0,0,1); */
 }
 
@@ -226,10 +324,46 @@
 
 @media screen and (max-width:500px) {
 
+  /* nav{
+  position: fixed;
+  margin: 0;
+  z-index: 9999;
+  width:100%;
+  padding: 0px;
+  background-color: red;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
   .title
   {
-    font-size: 12vw;
+    font-size: 10vw;
   }
+
+  .home_link .title .game_logo
+{
+  width:30px;
+  height:30px; 
+  padding-top:5px ;
+}
+
+  #retryHearts
+{
+  width:200px;
+  height: 70px;
+  /* border: 1px solid blue; */
+  color:white;
+  display: flex;
+  float: right;
+}
+
+  #retryHearts p{
+  color: red; 
+  font-size: 40px;
+}
+
 
   #gameview
   {
@@ -242,9 +376,9 @@
   {
     width:100%;
     height:100%;
-    border:1px solid green;
+    /* border:1px solid green; */
     position: absolute;
-    background:linear-gradient(to bottom, rgba(225,0,0,0.8),black);
+    background:linear-gradient(to bottom, rgb(225,0,0) 5%,black 80%);
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -252,7 +386,7 @@
     top:50%;
     left:50%;
     transform: translate(-50%,-50%);
-    margin-top: 10px;
+    margin-top: 0px;
     display: none;
     z-index: 100;
   }
@@ -262,13 +396,73 @@
   /* position: absolute; */
   border:1px solid rgb(180, 179, 179);
   background-color:lightBlue;
-  width:20%;
-  height:4vh;
+  width:60px;
+  height:60px;
   text-align:center;
   padding-top:10px;
   box-sizing: border-box;
   box-shadow: 3px 3px 3px 2px rgb(12, 12, 12) , -1px -1px 3px 2px rgb(185, 184, 184)  ;
   /* flex-basis:1 auto ; */
+  /* transform: matrix3d(0.6,0.1,0.7,0,-0.5,0.8,0.1,0,-0.6,-0.5,0.5,0,0,0,0,1); */
+}
+
+
+
+#gameStartconatiner
+{
+  width:100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+   border: 1px solid red;
+  /* flex-direction:column; */
+  position: relative;
+  background-color: rgb(0, 0, 0);
+}
+
+#gamelevel
+{
+  font-size: clamp(1rem,6vw,13rem);
+  padding-top:20px;
+  text-align: center;
+  color:red;
+  display: none;
+  font-size: 9vw;
+    /* border:1px solid green; */
+
+}
+
+.container
+{
+ width: 100%;
+  height:70vh;
+  margin-top: 10px;
+  border: 2px solid rgb(3, 3, 3);
+  background-color: rgba(10, 1, 1, 0.5);
+  box-shadow: 3px 3px 10px 1px black;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    /* gap: -20px; */
+    place-items: center;
+     /* border:1px solid green; */
+
+}
+
+.tiles-style
+{
+  /* position: absolute; */
+  border:1px solid rgb(180, 179, 179);
+  background-color:lightBlue;
+  width:15vw;
+  height:10vh;
+  text-align:center;
+  padding-top:10px;
+  box-sizing: border-box;
+  box-shadow: 3px 3px 3px 2px rgb(12, 12, 12) , -1px -1px 3px 2px rgb(185, 184, 184)  ;
+  margin: 0;
+  /* flex:1 ; */
   /* transform: matrix3d(0.6,0.1,0.7,0,-0.5,0.8,0.1,0,-0.6,-0.5,0.5,0,0,0,0,1); */
 }
   
