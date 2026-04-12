@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link  href="./home.css" rel="stylesheet" type="text/css"/> -->
     <link href="./tilesMatch.css" rel="stylesheet type='text/css"/>
     <link rel="icon" href="favicon.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,25 +11,26 @@
     <title>Tiles Match</title>
 </head>
 <body>
+  <!--navbar section-->
   <nav>
-     <a href="./index.html" class="home_link"><h1 class='title'><img src="./favicon.png" class='game_logo'/>&nbsp;&nbsp;<span>Tiles Match</span></h1></a>
+     <a href="../index.html" class="home_link"><h1 class='title'><img src=".././favicon.png" class='game_logo'/>&nbsp;&nbsp;<span>Tiles Match</span></h1></a>
   </nav>
-   
+   <!--game over popup-->
     <div id='gameOverPopup'>
       <h2 id='gameoverTitle'><b><i>Game over !</i></b></h2>
       <button id='replayButton'>replay</button>
       <button id='homeButton'>home</button>
     </div>
-    
+    <!--game start conatiner-->
     <div id='gameStartconatiner'>
-      <!-- <div id="styleContainer">
-      </div> -->
       <button id='gameStart'>Match Tiles</button>
-      <!-- <a href="./flipGame.html"><button id="flipgame_startbutton">Flip Game</button></a> -->
       <div id="gameview">
       <h3 id="gamelevel">level 0</h3>
+    <!--game lifeline and timer section-->  
       <div class="timer_section">
+    <!--game timer-->    
       <h6 id='gametimer'>00:00</h6>
+    <!--retry chances-->
       <div id="retryHearts">
       <p >&#10084;</p>
       <p >&#10084;</p>
@@ -46,8 +46,8 @@
     </div>
   
     
-    <script src="level.js" type='module'></script>
+    <script src="../level.js" type='module'></script>
     <script src="./tilesMatch.js" type='module'></script>
-    <!-- <script src="./screenStyle.js" type="module"></script> -->
+    <script src="../home.js" type="module"></script>
 </body>
 </html>

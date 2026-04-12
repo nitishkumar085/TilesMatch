@@ -1,40 +1,53 @@
 console.log('home')
 
-import {level} from  './level.js'
+//levels are imported
+
+import {level} from  '../level.js'
+import {gameStartButton} from '../home.js'
+
+// 
 const main = document.getElementsByClassName('container')
 const gameOverPopup = document.getElementById('gameOverPopup')
 
 const homeButton = document.getElementById('homeButton')
 
-const gameStartButton = document.getElementById('gameStart')
+// const gameStartButton = document.getElementById('gameStart')
 const gameoverTitle = document.getElementById('gameoverTitle')
 const gametimer = document.getElementById('gametimer')
 const gamelevel = document.getElementById('gamelevel')
 const gameview = document.getElementById('gameview')
 const gameStartconatiner = document.getElementById('gameStartconatiner')
 const replay = document.getElementById('replayButton')
-console.log(level)
+const replayLife = document.getElementById('retryHearts').children
+// console.log(replayLife)
 
-let selected = ""
+//replay heart count
+let replayLifeCount = 3
+// replay inittalized for next level;
+function restoreLifeNextLevel(){
+  for(let value of replayLife)
+  {
+    value.style.color = 'red'
+  }
+}
 
-// function check()
-
-// {
-//     if()
-// }
 let gameEndFlag = false
 //store game level
 let playGameLevel =  +localStorage.getItem('gamelevel') || 1
 
+//select tiles 
+
 let selectedTile = ''
 let matchTile = ''
-
+let restartLevelData = []
+let isRestartDataAddded = false
 let copyListData = []
 
 //find random tiles position
 function findTilesPosition(icon)
 {
   const listData = []
+ 
   const num =()=> {
     const i = Math.floor(Math.random()*(icon.length*2));
     return i
@@ -116,7 +129,15 @@ const timer =setInterval(()=>{
     startFlag = false
     console.log("complted")
     gameOverPopup.style.display = 'flex'
-     replay.innerText ='Replay'
+    if(replayLifeCount===0)
+    {
+        replay.innerText = 'Restart'
+    }
+    else
+    {
+       replay.innerText ='Replay'
+    }
+    
     gameoverTitle.innerHTML = '<b><i>game over !</i></b>'
 
   }
@@ -125,26 +146,6 @@ const timer =setInterval(()=>{
 }
 
 
-
-
-
-
-// function of game start button
-// gameStartButton.addEventListener('click',function(){
-//   if(!startFlag){
-//     startFlag = true
-//     gameview.style.display = "block";
-//     gameStartButton.style.display = 'none'
-//     gametimer.style.visibility = 'visible'
-//     gamelevel.style.display = 'block'
-//     gamelevel.innerText = `level ${playGameLevel}`
-//     main[0].style.display = 'flex'
-    
-//     gameload(level[playGameLevel])
-//     gameCountdownTimer(level[playGameLevel])
-//   }
-  
-// })
 
 // when redirect ro page
  window.onload = function(){
@@ -170,6 +171,12 @@ function gamePlay(listData)
 {
   // console.log(listData)
   replayData = listData
+   if(isRestartDataAddded === false)
+  {
+      restartLevelData = JSON.parse(JSON.stringify(listData))
+      console.log(restartLevelData)
+      isRestartDataAddded  = true
+  }
     main[0].innerHTML = ''
     for(let k = 0;k<listData.length;k++)
         {
@@ -203,13 +210,7 @@ function gamePlay(listData)
               }
             else if(!matchTile)
             {
-              // for(let f= 0;f<listData.length;f++)
-              // {
-              //   if(listData[f][0]==name)
-              //   {
-              //     console.log()
-              //   }
-              // }
+             
     
               matchTile = [name,k]
               console.log(matchTile)
@@ -246,15 +247,11 @@ function gamePlay(listData)
 // console.log(listData)
 //is home button is clicked
 
-console.log(chooseTile)
 
 homeButton.addEventListener('click',function(){
 
   console.log('home button')
- 
-//   gameOverPopup.style.display = 'none'
-//    gameview.style.display = 'none'
-//   gameStartButton.style.display='inline-block'
+
     if(chooseTile.length===0 && replayData.length===0)
   {
      localStorage.setItem('gamelevel',playGameLevel+1)
@@ -273,9 +270,14 @@ homeButton.addEventListener('click',function(){
 
 //replay function
 replay.addEventListener("click",function(){
+
   //if next button is clicked
   if(this.innerText ==='Next')
   {
+    //herat replay count initialized
+    isRestartDataAddded = false
+    replayLifeCount = 3
+    restoreLifeNextLevel()
     playGameLevel+=1
     localStorage.setItem('gamelevel',playGameLevel)
     gameOverPopup.style.display = 'none'
@@ -293,12 +295,42 @@ replay.addEventListener("click",function(){
       gameCountdownTimer(level[playGameLevel])
     }
   }
+  else if(this.innerText === 'Restart')
+  {
+    replayLifeCount=3
+    restoreLifeNextLevel()
+    localStorage.setItem('gamelevel',playGameLevel)
+    gameOverPopup.style.display = 'none'
+  gameStartButton.style.display='none'
+    if(!startFlag){
+      startFlag = true
+      gameview.style.display = "block";
+      gameStartButton.style.display = 'none'
+      gametimer.style.visibility = 'visible'
+      gamelevel.style.display = 'block'
+       gamelevel.innerText = `level ${playGameLevel}`
+      main[0].style.display = 'grid'
+      gameEndFlag =false
+      gameload(level[playGameLevel])
+      gameCountdownTimer(level[playGameLevel])
+  }}
   else{
 
     gameOverPopup.style.display = 'none'
   gameStartButton.style.display='none'
   gamePlay(replayData)
   gameCountdownTimer(level[playGameLevel])
+  if(replayLifeCount>-1)
+  {
+    replayLife[replayLifeCount-1].style  = 'color:white'
+    replayLifeCount -=1
+  }
+  else
+  {
+    console.log(replayLifeCount)
+    // replay.innerText = 'Restart'
+    replay.style = 'background:white;color:black;'
+  }
   }
   
 })
